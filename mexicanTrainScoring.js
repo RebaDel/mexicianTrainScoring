@@ -25,8 +25,24 @@ if (Number.isInteger(numPlayers) === true){
   numPlayers --;
 }
 }
-
-
+//do not test from here down yet - endless loop with no prompt for some reason
+var round = 0;
+while (newScore != -1){
+  for (i = 0; numPlayers > 0; i++){ 
+  //outline for adding scores with -1 ending the game
+    alert("Round " + round);
+    var newScore = prompt("What is the next score for " + players[i].name +"? Enter -1 to end the game.");
+    if (newScore != -1){
+      players[i].roundScores[round] = newScore; //add score to that player's round score array
+      players[i].scoreTotal += newScore; //add score to the total
+    } else {
+      console.log(players); //end of game, print out names and scores
+      break;
+    }
+  }
+  round++;
+}
+/*  
 roundNumber = 12; 
 print $roundNumber;
 if (roundNumber > 0):{
@@ -36,6 +52,7 @@ if (roundNumber > 0):{
 print finalScores;
 exit 0;
 }
+*/
 
 //# TODO:
 
